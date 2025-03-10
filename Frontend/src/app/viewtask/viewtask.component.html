@@ -1,0 +1,45 @@
+<div class="table-container mt-5 pt-4">
+    <div class="container">
+        <table class="table table-striped custom-table shadow-sm">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th>Task Id</th>
+                    <th>Task Title</th>
+                    <th>Task Description</th>
+                    <th>Task Deadline</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t1 of tasks" class="align-middle">
+                    <td class="text-primary fw-bold">{{t1.taskid}}</td>
+                    <td class="text-dark">{{t1.title}}</td>
+                    <td class="text-muted">{{t1.description}}</td>
+                    <td class="text-danger">{{t1.date}}</td>
+                    <td>
+                        <span class="badge" 
+                              [ngClass]="{'bg-warning text-dark': t1.status === 'In Progress', 'bg-success': t1.status === 'Completed'}">
+                            {{t1.status}}
+                        </span>
+                    </td>
+                    <td>
+                        <!-- Update Button with Blue Theme -->
+                        <button class="btn btn-info btn-sm text-white me-2" (click)="updatetask(t1.taskid)">
+                            <i class="bi bi-pencil"></i> Update
+                        </button>
+                        <!-- Delete Button with Blue Theme -->
+                        <button class="btn btn-danger btn-sm text-white" (click)="deletetask(t1.taskid)">
+                            <i class="bi bi-trash"></i> Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center mt-4">
+            <button class="btn btn-success shadow-lg" (click)="createtask(username)">
+                <i class="bi bi-plus-lg"></i> Add New Task
+            </button>
+        </div>
+    </div>
+</div>

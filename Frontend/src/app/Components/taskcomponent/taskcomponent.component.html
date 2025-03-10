@@ -1,0 +1,42 @@
+<div class="background-container">
+  <div class="d-flex justify-content-center align-items-center vh-100">
+      <div class="form-container shadow-lg p-5 rounded bg-white">
+          <h2 class="text-center text-primary mb-4">Create Task</h2>
+          <form (ngSubmit)="storeValue()">
+              <div class="form-group mb-3">
+                <label for="taskid" class="form-label">Task ID</label>
+                <input type="text" class="form-control"
+                  id="taskid" name="taskid" placeholder="Enter Task ID"
+                [(ngModel)]="taskobj.taskid">
+              </div>
+              <div class="form-group mb-3">
+                <label for="title" class="form-label">Task Title</label>
+                <input type="text" class="form-control"
+                 id="title" name="title" placeholder="Enter Task Title"
+                 [(ngModel)]="taskobj.title">
+              </div>
+              <div class="form-group mb-3">
+                <label for="description" class="form-label">Task Description</label>
+                <input type="text" class="form-control" id="description" name="description"
+                placeholder="Enter Task Description"
+                 [(ngModel)]="taskobj.description">
+              </div>
+              <div class="form-group mb-3">
+                <label for="date" class="form-label">Task Deadline</label>
+                <input type="date" class="form-control" id="date" name="date"
+                 [(ngModel)]="taskobj.date">
+              </div>
+              <div class="form-group mb-3">
+                <label for="status" class="form-label">Task Status</label>
+                <select class="form-select" id="status" name="status" [(ngModel)]="taskobj.status">
+                  <option value="In Progress">In Progress</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
+              <div class="text-center">
+                  <button type="submit" class="btn btn-primary w-100">Submit</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
